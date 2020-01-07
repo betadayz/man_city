@@ -13,13 +13,15 @@ export default class Stripes extends Component {
                 top: -260,
                 delay: 0
             },
+
             {
                 background: '#ffffff',
                 left: 360,
                 rotate: 25,
                 top: -397,
-                delay:200
+                delay: 200
             },
+
             {
                 background: '#98c5e9',
                 left: 600,
@@ -38,23 +40,27 @@ export default class Stripes extends Component {
                   start={{
                       background: '#ffffff',
                       opacity: 0,
-                      left: 0
+                      left: 0,
+                      rotate: 0,
+                      top: 0
                   }}
 
                   enter={{
                       background: [stripe.background],
                       opacity: [1],
                       left: [stripe.left],
-                      timing: {delay:500, duration: 200, ease: easePolyOut}
+                      rotate: [stripe.rotate],
+                      top: [stripe.top],
+                      timing: {delay:stripe.delay, duration: 200, ease: easePolyOut}
                   }}
             >
-                 {({ opacity,left,background }) => {
+                 {({ opacity,left,rotate,top,background }) => {
                      return (
                         <div className="stripe"
-                style={{
+                    style={{
                     background,
                     opacity,
-                    transform: `rotate(0deg) translate(${left}px,0px)`
+                    transform: `rotate(${rotate}deg) translate(${left}px,${top}px)`
                     
                 }}
                 >

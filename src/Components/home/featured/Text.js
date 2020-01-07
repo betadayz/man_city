@@ -117,7 +117,7 @@ class Text extends Component {
                      style={{
                              opacity,
                              background: `url(${FeaturedPlayer})`,
-                             transform: `translate(550pxx, 201px)`
+                             transform: `translate(550px, 201px)`
                      }}
              >
                   
