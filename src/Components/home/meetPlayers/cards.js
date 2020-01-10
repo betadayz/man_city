@@ -53,7 +53,7 @@ export default class HOmeCards extends Component {
                           }}
                         >
                             <PlayersCard
-                                 namer="30"
+                                 number="30"
                                  name="Nicolas"
                                  lastname="Otamendi"
                                  bck={Otamendi}

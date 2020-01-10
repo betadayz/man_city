@@ -12,7 +12,7 @@ const MatchesHome = () => {
                      size="50px"
                      color="ffffff"
                      add={{
-                         color:'red'
+                         color:'white'
                      }}
                  >
                      Matches
