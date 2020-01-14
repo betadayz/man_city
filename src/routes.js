@@ -6,6 +6,7 @@ import SignIn from './Components/signIn';
 import Dashboard from './Components/admin/Dashboard';
 
 const Routes = (props) => {
+  console.log(props)
   return(
     <Layout>
       <Switch>
