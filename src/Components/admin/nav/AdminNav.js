@@ -22,8 +22,8 @@ const AdminNav = () => {
         },
 
         {
-        title: 'Matches',
-        linkTo: '/admin_matches/add_player'
+        title: 'Players',
+        linkTo: '/admin_players/add_player'
         }
     ]
 

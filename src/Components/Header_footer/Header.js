@@ -16,33 +16,33 @@ export default class Header extends Component {
                         boxShadow: 'none',
                         padding: '10px 0',
                         borderBottom: '2px solid #00285e'
-                   }}
+                    }}
                 >
 
-                      <Toolbar style={{display:'flex'}}>
-                          <div style={{flexGrow: 1}}>
-                              <div className="header_logo">
-                                   <CityLogo
-                                       link={true}
-                                       linkTo="/"
-                                       width="70px"
-                                       height="70px"
+                    <Toolbar style={{ display: 'flex' }}>
+                        <div style={{ flexGrow: 1 }}>
+                            <div className="header_logo">
+                                <CityLogo
+                                    link={true}
+                                    linkTo="/"
+                                    width="70px"
+                                    height="70px"
 
-                                   />
-                              </div>
-                          </div>
-                          <Link to="/the_team">
+                                />
+                            </div>
+                        </div>
+                        <Link to="/the_team">
                             <Button color="inherit">The team</Button>
 
-                          </Link>
-                          <Link to="/the_matches">
-                          <Button color="inherit">Matches</Button>
-                          </Link>
-                      </Toolbar>
+                        </Link>
+                        <Link to="/the_matches">
+                            <Button color="inherit">Matches</Button>
+                        </Link>
+                    </Toolbar>
 
                 </AppBar>
 
-                
+
             </div>
         )
     }
