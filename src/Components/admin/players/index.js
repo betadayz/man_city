@@ -3,67 +3,63 @@ import { Link } from 'react-router-dom';
 import AdminLayout from '../../../Hoc/AdminLayout';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Paper from '@material-ui/core/Paper';
-import { firebaseMatches } from '../../../firebase';
+import { firebasePlayers } from '../../../firebase';
 import { firebaseLooper, reverseArray } from '../../ui/misc';
 import { TableHead, TableRow, TableCell, Table, TableBody } from '@material-ui/core';
 
-
-
-export default class AdminMatches extends Component {
+export default class AdminPlayers extends Component {
 
     state = {
         isLoading: true,
-        matches: []
+        players: []
     }
 
     componentDidMount() {
-        firebaseMatches.once('value').then(snapshot => {
-            const matches = firebaseLooper(snapshot);
+        firebasePlayers.once('value').then((snapshot) => {
+            const players = firebaseLooper(snapshot);
 
             this.setState({
                 isLoading: false,
-                matches: reverseArray(matches)
+                players: reverseArray(players)
             })
-        });
+        })
     }
 
+
     render() {
+        console.log(this.state)
         return (
-                <AdminLayout>
+            <AdminLayout>
                 <div>
                     <Paper>
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Date</TableCell>
-                                    <TableCell>Match</TableCell>
-                                    <TableCell>Result</TableCell>
-                                    <TableCell>Final</TableCell>
+                                    <TableCell>First name</TableCell>
+                                    <TableCell>Last name</TableCell>
+                                    <TableCell>Jersey number</TableCell>
+                                    <TableCell>Position</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                              { this.state.matches ?
-                                 this.state.matches.map((match,i) => (
+                              { this.state.players ?
+                                 this.state.players.map((player,i) => (
                                      <TableRow key={i}>
                                          <TableCell>
-                                             {match.date}
-                                         </TableCell>
-                                         <TableCell>
-                                             <Link to={`/admin_matches/edit_match/${match.id}`}>
-                                                 {match.away} <strong>-</strong> {match.local}
-
+                                             <Link to={`/admin_players/add_players/$`}>
+                                                 {player.name}
                                              </Link>
                                          </TableCell>
                                          <TableCell>
-                                             {match.resultAway} <strong>-</strong> {match.resultLocal} 
+                                            <Link to={`/admin_players/add_players/$`}>
+                                                  {player.lastname}
+                                               </Link>
                                          </TableCell>
                                          <TableCell>
-                                             { match.final === "Yes" ? 
-                                               <span className="matches_tag_red">Final</span>
-                                               :
-                                               <span className="matches_tag_green">Not played yet</span>
-                                             
-                                             }
+                                         {player.jerseynumber}
+                                         </TableCell>
+                                         <TableCell>
+                                         {player.position}
                                          </TableCell>
                                      </TableRow>
                                  ))
@@ -82,7 +78,6 @@ export default class AdminMatches extends Component {
                         }
                     </div>
                 </AdminLayout>
-            
         )
     }
 }
