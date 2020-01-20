@@ -190,8 +190,21 @@ export default class AddEditMatch extends Component {
       }
 
       for(let key in newFormdata) {
-        
+        if (match) {
+          newFormdata[key].value = match[key];
+          newFormdata[key].valid = true;
+        }
+        if (key === 'local' || key === 'away'){
+          newFormdata[key].config.options = teamOptions
+        } 
       }
+
+      this.setState({
+        matchId,
+        formType: type,
+        formdata: newFormdata,
+        teams
+      })
     }
 
     componentDidMount() {
