@@ -17,7 +17,6 @@ const FormField = ({formdata, id, change}) => {
 
     const renderTemplate = () => {
         let formTemplate = null;
-        console.log(formdata)
 
         switch(formdata.element) {
             case('input') : 
