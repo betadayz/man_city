@@ -293,8 +293,6 @@ export default class AddEditMatch extends Component {
       
    }
 
-    
-
   render() {
     return (
       <AdminLayout>
