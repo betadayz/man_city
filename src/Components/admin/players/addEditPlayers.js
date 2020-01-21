@@ -86,7 +86,7 @@ export default class AddEditPlayers extends Component {
                   validation:{
                       required: true
                   },
-                  valid:true
+                  valid:false
               }
          }
     }
@@ -103,11 +103,15 @@ export default class AddEditPlayers extends Component {
         }
     }
 
-    updateForm(element) {
+    updateForm(element, content = '') {
         const newFormdata = {...this.state.formdata}
         const newElement = {...newFormdata[element.id]}
 
-        newElement.value = element.event.target.value;
+        if(content === ''){
+            newElement.value = element.event.target.value;
+        } else {
+            newElement.value = content
+        }
 
         let validData = validate(newElement)
         newElement.valid = validData[0];
@@ -133,8 +137,17 @@ export default class AddEditPlayers extends Component {
         }
   
         if (formIsValid) {
-          
-            /// submit form
+          if(this.state.formType === 'Edit player'){
+
+          } else {
+              firebasePlayers.push(dataToSubmit).then(() => {
+                  this.props.history.push('/admin_players')
+              }).catch(e => {
+                  this.setState({
+                      formError: true
+                  })
+              })
+          }
          
         } else {
             this.setState({
@@ -146,16 +159,24 @@ export default class AddEditPlayers extends Component {
      }
 
      resetImage = () => {
+         const newFormdata = {...this.state.formdata}
+         newFormdata['image'].value = '';
+         newFormdata['image'].valid = false;
+         this.setState({
+             defaultImg:'',
+             formdata: newFormdata
+         })
 
      }
 
-     storeFilename = () => {
-         
+     storeFilename = (filename) => {
+         this.updateForm({id: 'image'},filename)
      }
 
      
 
     render() {
+        console.log(this.state.formdata)
         return (
             <AdminLayout>
                 <div className="editplayers_dialog_wrapper">

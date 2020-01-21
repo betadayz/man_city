@@ -24,7 +24,6 @@ export default class Fileuploader extends Component {
     }
 
     handleUploadSuccess = (filename) => {
-        console.log(filename)
         this.setState({
             name: filename,
             isUploading: false
@@ -33,9 +32,10 @@ export default class Fileuploader extends Component {
         firebase.storage().ref(this.props.dir)
         .child(filename).getDownloadURL()
         .then( url => {
-            console.log(url)
             this.setState({fileURL: url})
         })
+
+        this.props.filename(filename)
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -46,6 +46,15 @@ export default class Fileuploader extends Component {
             }
         }
         return null
+    }
+
+    uploadAgain = () => {
+        this.setState({
+            name:'',
+            isUploading: false,
+            fileURL:''
+        });
+        this.props.resetImage();
     }
 
     render() {
