@@ -48,7 +48,7 @@ export default class AddEditPlayers extends Component {
                 element:'input',
                 value:'',
                 config:{
-                  label: 'Jersey number',
+                  label: 'number',
                   name:'number_input',
                   type:'text',
                 },

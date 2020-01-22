@@ -36,7 +36,7 @@ export default class AdminPlayers extends Component {
                                 <TableRow>
                                     <TableCell>First name</TableCell>
                                     <TableCell>Last name</TableCell>
-                                    <TableCell>Jersey number</TableCell>
+                                    <TableCell>number</TableCell>
                                     <TableCell>Position</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -55,7 +55,7 @@ export default class AdminPlayers extends Component {
                                                </Link>
                                          </TableCell>
                                          <TableCell>
-                                         {player.jerseynumber}
+                                         {player.number}
                                          </TableCell>
                                          <TableCell>
                                          {player.position}
