@@ -45,7 +45,7 @@ export default class TheTeam extends Component {
         this.state.players ?
              this.state.players.map((player,i) => {
                  return player.position === category ?
-                    <Fade left key={i}>
+                    <Fade left delay={i*20} key={i}>
                       <div className="item">
                           <PlayerCard
                               number={player.number}
@@ -70,16 +70,38 @@ export default class TheTeam extends Component {
             
             >
                 { !this.state.loading ?
-                    <div>
-                        <div className="team_category_wrapper">
-                            <div className="title">Keepers</div>
-                            <div className="team_cards">
-                                {this.showplayersByCategory('Keeper')}
-                            </div>
-                        </div>
-                    </div>
+                   <div>
+                       <div className="team_category_wrapper">
+                           <div className="title">Keeper</div>
+                           <div className="team_cards">
+                               {this.showplayersByCategory('Keeper')}
+                           </div>
+                       </div>
 
-                    : null
+                       <div className="team_category_wrapper">
+                           <div className="title">Defence</div>
+                           <div className="team_cards">
+                               {this.showplayersByCategory('Defence')}
+                           </div>
+                       </div>
+
+                       <div className="team_category_wrapper">
+                           <div className="title">Midfield</div>
+                           <div className="team_cards">
+                               {this.showplayersByCategory('Midfield')}
+                           </div>
+                       </div>
+
+                       <div className="team_category_wrapper">
+                           <div className="title">Striker</div>
+                           <div className="team_cards">
+                               {this.showplayersByCategory('Striker')}
+                           </div>
+                       </div>
+                   </div>
+
+                   : null
+                
                 
                 }
             </div>
