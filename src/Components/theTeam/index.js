@@ -61,7 +61,6 @@ export default class TheTeam extends Component {
         :null
     )
     render() {
-        console.log(this.state.players)
         return (
             <div className="the_team_container"
               style={{
