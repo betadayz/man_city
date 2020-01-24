@@ -7,6 +7,7 @@ import Home from './Components/home';
 import SignIn from './Components/signIn';
 import TheTeam from './Components/theTeam';
 import TheMatches from './Components/theMatches';
+import NotFound from './Components/ui/not_found';
 import Dashboard from './Components/admin/Dashboard';
 import AdminMatches from './Components/admin/matches';
 import AddEditMatch from './Components/admin/matches/addEditMatch';
@@ -28,6 +29,7 @@ const Routes = (props) => {
          <PublicRoute {...props} restricted={false} path="/the_matches" exact component={TheMatches} />
          <PublicRoute {...props} restricted={false} path="/the_team" exact component={TheTeam} />
          <PublicRoute {...props} restricted={false} path="/" exact component={Home} />
+         <PublicRoute {...props} restricted={false} exact component={NotFound} />
       </Switch>
       
     </Layout>
