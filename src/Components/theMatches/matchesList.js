@@ -5,19 +5,20 @@ import NodeGroup from 'react-move/NodeGroup'
 export default class MatchesList extends Component {
 
     state = {
-        matcheslist: []
+        matchesList: []
     }
 
     static getDerivedStateFromProps(props, state) {
         return state = {
-            matcheslist: props.matches
+            matchesList: props.matches
         }
     }
 
     showMatches = () => (
-        this.state.matcheslist ?
+       
+        this.state.matchesList ?
            <NodeGroup
-               data={this.state.matcheslist}
+               data={this.state.matchesList}
                keyAccessor={(d) => d.id}
 
                start={() => ({
@@ -47,8 +48,7 @@ export default class MatchesList extends Component {
            {(nodes) => (
                <div>
                    { nodes.map(({key, data, state:{ x, opacity}}) =>(
-                       <div 
-                       
+                       <div
                        key={key} 
                        className="match_box_big"
                        style={{
@@ -56,9 +56,32 @@ export default class MatchesList extends Component {
                            transform: `translate(${x}px)`
                        }}
                        >
-                       haha
-
+                       <div className="block_wrapper">
+                           <div className="block">
+                               <div 
+                                  className="icon" 
+                                  style={{background:`url(/images/team_icons/${data.localThmb}.png)`}}></div>
+                                  <div className="team">{data.local}</div>
+                                  <div className="result">{data.resultLocal}</div>
+                           </div>
                        </div>
+
+                       <div className="block_wraper">
+                           <div className="block">
+                               <div 
+                                  className="icon" 
+                                  style={{background:`url(/images/team_icons/${data.awayThmb}.png)`}}></div>
+                                  <div className="team">{data.away}</div>
+                                  <div className="result">{data.resultAway}</div>
+                           </div>
+                       </div>
+                       <div className="block_wraper nfo">
+                           <div><strong>Date:</strong> {data.date} </div>
+                           <div><strong>Stadium:</strong> {data.stadium} </div>
+                           <div><strong>Referee:</strong> {data.referee} </div>
+                       </div>
+                    </div>
+                       
                    ))}
                </div>
            )}
@@ -67,8 +90,7 @@ export default class MatchesList extends Component {
         :null
     )
     render() {
-        console.log(this.state.matcheslist)
-        console.log(this.props)
+        console.log(this.state.matchesList)
         return (
             <div>
                 {this.showMatches()}
