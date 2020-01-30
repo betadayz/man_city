@@ -15,7 +15,8 @@ export default class AdminMatches extends Component {
         isLoading: true,
         matches: []
     }
-
+  
+      // loading from database
     componentDidMount() {
         firebaseMatches.once('value').then(snapshot => {
             const matches = firebaseLooper(snapshot);
