@@ -207,6 +207,7 @@ export default class AddEditMatch extends Component {
       })
     }
 
+    // life cycle component
     componentDidMount() {
       const matchId = this.props.match.params.id;
       const getTeams = (match, type) => {
