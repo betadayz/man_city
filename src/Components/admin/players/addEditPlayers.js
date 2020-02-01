@@ -89,7 +89,8 @@ class AddEditPlayers extends Component {
             }
         }
     }
-
+      
+    // Players update function
     updateFields = (player, playerId, formType , defaultImg) =>{
         const newFormdata = { ...this.state.formdata}
 
