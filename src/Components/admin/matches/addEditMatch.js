@@ -248,7 +248,9 @@ export default class AddEditMatch extends Component {
           });
         }, 2000)
     }
-
+     
+    // submit form function
+    
     submitForm(event) {
       event.preventDefault();
 
