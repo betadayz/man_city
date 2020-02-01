@@ -43,7 +43,7 @@ const AdminNav = () => {
             </Link>
         ))
     )
-
+       // Logout handler function
     const logoutHandler = () => {
         firebase.auth().signOut().then(()=> {
             console.log('Log out successful')
